@@ -1,0 +1,173 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  color: #333;
+}
+
+header {
+  background: #111;
+}
+
+.headline {
+  position: relative;
+  height: 200px;
+  color: #fff;
+  text-align: center;
+  background-color: #95B594;
+  /* background: url("yellow\ texture.jpg") no-repeat center center;
+  background-size: cover; */
+}
+
+.headline:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 17, 17, 0.2);
+}
+
+.inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  transform: translateX(-50%) translateY(-50%);
+}
+.inner h1 {
+  margin: 0;
+  font-size: 3em;
+  line-height: 1.2em;
+}
+
+.inner p {
+  margin: 0;
+  font-size: 1.4em;
+  font-style: italic;
+  font-family: serif;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  /* margin-top: 50px; */
+  z-index: 10;
+}
+nav ul {
+  list-style: none;;
+}
+nav li {
+  float: left;
+}
+nav a {
+  font-size: 1em;
+  color: #fff;
+  text-decoration: none;
+  margin: 5px 0 0 20px;
+  display: block;
+}
+nav a:hover {
+  color: #ededed;
+}
+
+li{
+  list-style: none;
+}
+
+ul{
+  padding-left: 7px;
+  padding-bottom: 5px;
+  padding-right: 7px;
+}
+
+.column1 {
+  width: 20%;
+  background-color: #88BACD;
+  float: left;
+}
+
+.column2 {
+  width: 20%;
+  background-color: #F0BEA6;
+  float: left;
+}
+
+.column3 {
+  width: 20%;
+  background-color: #FCDED7;
+  float: left;
+}
+
+.column4 {
+  width: 20%;
+  background-color: #E7BDD1;
+  float: left;
+}
+
+.column5 {
+  width: 20%;
+  background-color: #95B594;
+  float: left;
+}
+
+/* button {
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+  color: #00132C;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  padding: 10px 23%;
+  text-decoration: none;
+  user-select: none;
+  touch-action: manipulation;
+} */
+
+button:hover {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.button1{
+  padding-top: 15px;
+  text-align: center;
+}
+
+.button2{
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+  color: #00132C;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  padding: 10px 23%;
+  text-decoration: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.OutsideForm{
+  padding: 30px;
+}
+
+#SignInForm{
+  padding: 10%;
+  text-align: center;
+  border: 2px dotted #F0BEA6;
+}
+
+#signupButton{
+  color: #95B594;
+  font-size: 10px;
+}
+
+.addcardbutton{
+  height: fit-content;
+  width: fit-content;
+}

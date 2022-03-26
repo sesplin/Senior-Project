@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="app">
+        <header>
+            <div class="headline">
+                <nav>
+                    <ul>
+                      <li><a href="index.html">{{ pages[0] }}</a></li>
+                      <li><a href="profile.html">{{ pages[1] }}</a></li>
+                      <li><a href="info.html">{{ pages[2] }}</a></li>
+                    </ul>
+                </nav>
+                <div class="inner">
+                    <h1>Credit Rewards</h1>
+                    <p>{{ points }}</p>
+                </div>
+            </div>
+        </header>
+
+        <p>All Cards</p>
+        <ul id="allCards">
+            <li v-for="card in cards">
+                {{ card.card_name }}
+                <button class="addcardbutton" v-on:click="addCard()">Add Card</button>
+            </li>
+        </ul>
+
+        <div class="column1">
+            <div class="button1">
+                <button class="button2" v-on:click="getTravelCards()">Travel</button>
+            </div>
+            <ul id="travelCards">
+                <li v-if = "tclicked" v-for="tcard in tcards">
+                    {{ tcard.card_name }}
+                    {{ tcard.Travel }}
+                </li>
+            </ul>
+        </div>
+
+        <div class="column2">
+            <div class="button1">
+                <button class="button2" v-on:click="getGroceryCards()">Grocery</button>
+            </div>
+            <ul id="groceryCards">
+                <li v-if = "gclicked" v-for="gcard in gcards">
+                    {{ gcard.card_name }}
+                    {{ gcard.groceries }}
+                </li>
+            </ul>
+        </div>
+
+        <div class="column3">
+            <div class="button1">
+                <button class="button2" v-on:click="getDiningCards()">Dining</button>
+            </div>
+            <ul id="diningCards">
+                <li v-if = "dclicked" v-for="dcard in dcards">
+                    {{ dcard.card_name }}
+                    {{ dcard.dining }}
+                </li>
+            </ul>
+        </div>
+
+        <div class="column4">
+            <div class="button1">
+                <button class="button2" v-on:click="getGasCards()">Gas</button>
+            </div>
+            <ul id="gasCards">
+                <li v-if = "gasclicked" v-for="gascard in gascards">
+                    {{ gascard.card_name }}
+                    {{ gascard.fuel }}
+                </li>
+            </ul>
+        </div>
+
+        <div class="column5">
+            <div class="button1">
+                <button class="button2" v-on:click="getShoppingCards()">Shopping</button>
+            </div>
+            <ul id="shoppingCards">
+                <li v-if = "sclicked" v-for="scard in scards">
+                    {{ scard.card_name }}
+                    {{ scard.shopping }}
+                </li>
+            </ul>
+        </div>
+
+        <!-- <template>
+            <vue-horizontal responsive>
+                <section v-for="c in cards" :key= "c">
+                  <h3>{{ c.card_name }}</h3>
+                </section>
+            </vue-horizontal>
+        </template> -->
+
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-horizontal@0.x.x/dist/vue-horizontal.esm.min.js"></script>
+    <script src="app.js"></script>
+</html>
+
