@@ -17,12 +17,12 @@
 
         <div id="OutsideSignUpForm">
             <div id= "NewUserForm">
-                <input type="text" id="inputfName" placeholder="first name">
-                <input type="text" id="inputlName" placeholder="last name">
-                <input type="text" id="inputusername" placeholder="email">
-                <input type="text" id="inputpassword" placeholder="password">
-                <div id="button1">
-                    <button id="signinButton">Sign in</button>
+                <input type="text" class="newuser" placeholder="first name"><br>
+                <input type="text" class="newuser" placeholder="last name"><br>
+                <input type="text" class="newuser" placeholder="email"><br>
+                <input type="text" class="newuser" placeholder="password"><br>
+                <div id="button2"> 
+                    <button id="signupButton" v-on:click="createUser()">Sign up</button>
                 </div>
             </div>
         </div>

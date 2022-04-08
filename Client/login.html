@@ -14,18 +14,26 @@
             </div>
         </header>
 
+            <!-- <div id="login">
+                <h1>Login</h1>
+                <input type="text" name="username" v-model="input.username" placeholder="Username" />
+                <input type="password" name="password" v-model="input.password" placeholder="Password" />
+                <button type="button" v-on:click="login()">Login</button>
+            </div> -->
+            
         <div id="OutsideForm">
             <div id= "SignInForm">
-                <input type="text" id="inputusername" placeholder="email">
-                <input type="text" id="inputpassword" placeholder="password">
+                <input type="text" id="inputusername" v-model="login_username" placeholder="email">
+                <input type="text" id="inputpassword" v-model="login_pass" placeholder="password">
                 <div class="button2">
-                    <button id="signinButton">Sign in</button>
-                    <button id="signupButton">Sign up</button>
+                    <button id="signinButton" v-on:click="signIn()">Sign in</button>
+                    <button id="signupButton"><a href="newprofile.html">Sign Up</a></button>
+                    
                 </div>
             </div>
         </div>
         </div>
-    </body>
+    </body> 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="app.js"></script>
 </html>

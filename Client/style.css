@@ -157,17 +157,46 @@ button:hover {
 }
 
 #SignInForm{
-  padding: 10%;
+  padding: 5%;
   text-align: center;
-  border: 2px dotted #F0BEA6;
+  border: 4px dotted #F0BEA6;
+}
+
+#NewUserForm{
+  padding: 5%;
+  text-align: center;
+  border: 4px dotted #F0BEA6;
+}
+
+.newuser{
+  padding: 5px;
+  margin: 5px;
 }
 
 #signupButton{
-  color: #95B594;
+  background-color: #F0BEA6;
   font-size: 10px;
+  color: #ffffff;
+  border: none;
+  padding: 4px;
 }
 
 .addcardbutton{
   height: fit-content;
   width: fit-content;
+  background-color: #88BACD;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  color: #00132C;
+  font-size: 10px;
+}
+
+.removecardbutton{
+  height: fit-content;
+  width: fit-content;
+  background-color: #E7BDD1;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  color: #00132C;
+  font-size: 10px;
 }
