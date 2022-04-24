@@ -1,19 +1,19 @@
 # Senior-Project
 Web application created with Python, HTML, CSS, and Vue.js
 
-# Table of Contents
+## Table of Contents
 - General Info
 - Technologies
 - Setup
 
-# Problem
+## Problem
 
 
-# Solution
+## Solution
 
-# Technologies
+## Technologies
 
-# SQlite Schema
+## SQlite Schema
 
 ```sql
 CREATE TABLE users(
@@ -43,7 +43,7 @@ user_id INTEGER,
 card_id INTEGER);
 ```
 
-# REST Endpoints
+## REST Endpoints
 
 
 Name                           | Method | Path
