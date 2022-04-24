@@ -1,17 +1,24 @@
 # Senior-Project
-Web application created with Python, HTML, CSS, and Vue.js
+Web application to solve a problem involving credit card points
 
 ## Table of Contents
-- General Info
+- Problem
+- Solution
 - Technologies
-- Setup
+- SQlite Schema
+- REST Endpoints
 
 ## Problem
-
+Intelligent credit card users with multiple cards regularly have difficulty deciding what card to use when purchasing different items. This is due to the fact that they desire to purchase with the card that will provide them with the most reward points.
 
 ## Solution
+A web application that will inform users who desire to maximize credit card reward points with individual purchases based on the credit cards that they currently own. It will provide individualized results which the user will indicate.
 
 ## Technologies
+- Python
+- HTML
+- CSS
+- Vue.js
 
 ## SQlite Schema
 
