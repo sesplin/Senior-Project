@@ -1,10 +1,19 @@
 @charset "UTF-8";
+@font-face {
+  font-family: thirdfont;
+  src: url(Ubuntu-Regular.ttf)
+}
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 body {
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: thirdfont;
   color: #333;
+}
+
+nav{
+  background-color: #0000001c;
+  padding-bottom: 25px;
 }
 
 header {
@@ -13,12 +22,29 @@ header {
 
 .headline {
   position: relative;
-  height: 200px;
+  height: 400px;
   color: #fff;
   text-align: center;
-  background-color: #95B594;
-  /* background: url("yellow\ texture.jpg") no-repeat center center;
-  background-size: cover; */
+  background-image:
+  linear-gradient(to bottom, rgba(245, 246, 252, 0.575), #f5f5f533),
+  url('cardsinhand.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+h4 {
+  display: flex;
+  flex-direction: row;
+  color: #33576d;
+}
+
+h4:before,
+h4:after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 2px solid #bebebe;
+  margin: auto;
 }
 
 .headline:after {
@@ -48,7 +74,6 @@ header {
   margin: 0;
   font-size: 1.4em;
   font-style: italic;
-  font-family: serif;
 }
 
 nav {
@@ -76,6 +101,8 @@ nav a:hover {
 
 li{
   list-style: none;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 ul{
@@ -84,49 +111,73 @@ ul{
   padding-right: 7px;
 }
 
+.container {
+  display: flex;
+  overflow:auto;
+  /* height: 300px; */
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.alllist{
+  padding:18px;
+  margin: 10px;
+  height: fit-content;
+  background: #f7f7f7;
+}
+
+.container1 {
+  display: flex;
+  overflow:auto;
+}
+
+.container1::-webkit-scrollbar {
+  display: none;
+}
+
+.userlist{
+  padding:18px;
+  margin: 10px;
+  height: fit-content;
+  background: #f7f7f7;
+}
+
+.lists{
+  padding-bottom: 45px;
+}
+
 .column1 {
   width: 20%;
-  background-color: #88BACD;
   float: left;
+  background-image: linear-gradient(to top, #33576d, #abb9c41c);
+
 }
 
 .column2 {
   width: 20%;
-  background-color: #F0BEA6;
+  background-image: linear-gradient(to top, #33576d, #abb9c41c);
   float: left;
 }
 
 .column3 {
   width: 20%;
-  background-color: #FCDED7;
+  background-image: linear-gradient(to top, #33576d, #abb9c41c);
   float: left;
 }
 
 .column4 {
   width: 20%;
-  background-color: #E7BDD1;
+  background-image: linear-gradient(to top, #33576d, #abb9c41c);
   float: left;
 }
 
 .column5 {
   width: 20%;
-  background-color: #95B594;
+  background-image: linear-gradient(to top, #33576d, #abb9c41c);
   float: left;
 }
-
-/* button {
-  background-color: transparent;
-  border: 2px solid #ffffff;
-  box-sizing: border-box;
-  color: #00132C;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 24px;
-  padding: 10px 23%;
-  text-decoration: none;
-  user-select: none;
-  touch-action: manipulation;
-} */
 
 button:hover {
   background-color: transparent;
@@ -152,6 +203,10 @@ button:hover {
   touch-action: manipulation;
 }
 
+.button2:hover{
+  background-color: #ffc374;
+}
+
 .OutsideForm{
   padding: 30px;
 }
@@ -165,7 +220,31 @@ button:hover {
 #NewUserForm{
   padding: 5%;
   text-align: center;
-  border: 4px dotted #F0BEA6;
+  border: 4px dotted #95b5948c;
+}
+
+#cost{
+  padding-top: 10px;
+  padding-bottom: 30px;
+  text-align: center;
+  /* border: 3px solid #33576d; */
+}
+
+#Profileinfo{
+  padding-top: 10px;
+  padding-bottom: 30px;
+  text-align: center;
+  margin-top: 30px;
+  border: 3px solid #33576d;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.whitespace{
+  height: 50px;
 }
 
 .newuser{
@@ -174,7 +253,7 @@ button:hover {
 }
 
 #signupButton{
-  background-color: #F0BEA6;
+  background-color: #95b5948c;
   font-size: 10px;
   color: #ffffff;
   border: none;
@@ -184,19 +263,67 @@ button:hover {
 .addcardbutton{
   height: fit-content;
   width: fit-content;
-  background-color: #88BACD;
-  border: 1px solid #000000;
+  background-color: #ffffff;
+  border: 2px solid #88BACD;
   box-sizing: border-box;
-  color: #00132C;
+  color: #33576d;
   font-size: 10px;
+  border-radius: 8px;
 }
 
 .removecardbutton{
   height: fit-content;
   width: fit-content;
-  background-color: #E7BDD1;
-  border: 1px solid #000000;
+  background-color: #ffffff;
+  border: 2px solid #88BACD;
   box-sizing: border-box;
-  color: #00132C;
+  color: #33576d;
   font-size: 10px;
+  border-radius: 8px;
+}
+
+/* .grid-container1{
+  display:grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-auto-rows: minmax(150px, auto);
+  grid-gap: 10px;
+  height: 100vh;
+} */
+
+.row{
+  display:flex;
+  padding:0 4px;
+}
+
+.column{
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 4px
+}
+
+.column img {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 30px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+h1{
+  padding-top: 80px;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: center;
+  max-width: 500px;
+  font-size: 20px;
+}
+
+h2{
+  font-size: 20px;
+  max-width: 300px;
+  min-width: 100px;
+}
+.pointsh2{
+  text-align: right;
 }

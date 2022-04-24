@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        
+        <div id="app">
         <header>
             <div class="headline">
                 <nav>
@@ -20,7 +20,48 @@
                 </div>
             </div>
         </header>
+
+        <div class="grid-container">
+            <div class="grid-item"></div>
+            <div class="grid-item">
+                <div id = "Profileinfo">
+                    <!-- <p>Profile Name: {{user.first_name}} {{user.last_name}}</p> -->
+                    <p>Profile Name: {{user[0].first_name}} {{user[0].last_name}}</p>
+                    <p>Email: {{user[0].email}}</p>
+                </div>
+            </div>
+            <div class="grid-item"></div>
+        </div>
+        
+        <div id="usercards">
+            <h4>User Cards</h4>
+            <div class="whitespace"></div>
+            <ul id="userCards">
+                <div class="container1">
+                <li class="userlist" v-for="(card,index) in usercards">
+                    {{ card.card_name }}
+                    <button class="removecardbutton" v-on:click="removeCard(card.card_id)">-</button>
+                </li>
+                </div>
+                <div class="whitespace"></div>
+            </ul>
+        </div>
+        <h4> Add Cards </h4>
+        <div class="whitespace"></div>
+        <!-- <div class="whitespace"></div> -->
+        <div class="container">
+            <!-- <ul id="allCards"> -->
+                <li class="alllist" v-for="(card,index) in cards">
+                    {{ card.card_name }}
+                    <button class="addcardbutton" v-on:click="addCard(index+1)">+</button>
+                </li>
+            <!-- </ul> -->
+        </div>
+        <div class="whitespace"></div>
+        <div class="whitespace"></div>
+        </div>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="code.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-horizontal@0.x.x/dist/vue-horizontal.esm.min.js"></script>
+    <script src="app.js"></script>
 </html>

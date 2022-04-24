@@ -19,6 +19,12 @@ class CreditcardsDB:
         cards = self.cursor.fetchall()
         return cards
 
+    def getUser(self):
+        # userid = [id]
+        self.cursor.execute("SELECT * FROM users WHERE user_id=?", "1")
+        users = self.cursor.fetchall()
+        return users
+
     def getUserCreditCards(self):
         self.cursor.execute("SELECT * FROM cards, usercards WHERE cards.card_id = usercards.card_id AND usercards.user_id = ?", "1")
         cards = self.cursor.fetchall()
@@ -68,31 +74,43 @@ class CreditcardsDB:
         self.cursor.execute("INSERT INTO cards (card_name, company, Travel, dining, groceries, fuel, shopping) VALUES(?,?,?,?,?,?,?)", data)
         self.connection.commit()
 
-    def addCardtoUser(self, cardId):
-        # data = [cardName]
+    # def addCardtoUser(self, cardId):
+    #     # data = [cardName]
 
-        self.cursor.execute("SELECT card_id FROM cards WHERE card_id=?", cardId)
+    #     self.cursor.execute("SELECT card_id FROM cards WHERE card_id=?", cardId)
+    #     card = self.cursor.fetchone()
+
+    #     cardid = card.get("card_id")
+    #     self.cursor.execute("INSERT INTO usercards (user_id, card_id) VALUES(1,?)", str(cardid))
+    #     self.connection.commit()
+
+    def addCardtoUser( self, cardId ):
+
+        self.cursor.execute("SELECT card_id FROM usercards WHERE card_id=?", cardId)
         card = self.cursor.fetchone()
+        if card != None:
+            print(card)
+            return False
 
-        cardid = card.get("card_id")
-        self.cursor.execute("INSERT INTO usercards (user_id, card_id) VALUES(1,?)", str(cardid))
+        self.cursor.execute("INSERT INTO usercards (user_id, card_id) VALUES(1,?)", cardId)
         self.connection.commit()
 
     def validateUser(self, email, password):
-        data = [email]
-        self.cursor.execute("SELECT * FROM users WHERE email=?", data)
+        data = [email, password]
+        self.cursor.execute("SELECT * FROM users WHERE email=? AND salted_pass = ?", data)
         user = self.cursor.fetchone()
-        print(email)
+        # print(user)
         if user == None:
             return False
         else:
-            check = bcrypt.verify(password, user["password"])
-            if check == False:
-                print("wrong password")
-                return check
+            # check = bcrypt.verify(password, user["password"])
+            # if check == False:
+            #     print("wrong password")
+            #     return check
             return user
 
     def deleteCard(self, id):
         data = [id]
         self.cursor.execute("DELETE FROM usercards WHERE card_id = ? AND user_id = 1", data)
         self.connection.commit()
+        return True

@@ -49,9 +49,9 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 
     def handleCreateUser(self):
 
-        if "userId" not in self.sessionData:
-            self.handleNotFound()
-            return
+        # if "userId" not in self.sessionData:
+        #     self.handleNotFound()
+        #     return
 
         Length = int(self.headers["Content-Length"])
         request_body = self.rfile.read(Length).decode("utf-8")
@@ -69,9 +69,23 @@ class MyRequestHandler(BaseHTTPRequestHandler):
         self.send_response(201)
         self.end_headers()
 
+    # def handleGetUser(self, id):
+    def handleGetUser(self):
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.end_headers()
+        # contlength = int(self.headers["Content-Length"])
+        # request_stuff1 = self.rfile.read(contlength)
+        # request_stuff = json.loads(request_stuff1.decode('utf-8'))
+        # id = request_stuff['id']
+        db = CreditcardsDB()
+        user = db.getUser()
+        self.wfile.write(bytes(json.dumps(user), "utf-8"))
+
+
     def handleGetAllCards(self):
 
-        # if "userId" not in self.sessionData:
+        # if "user_id" not in self.sessionData:
         #     self.handleNotFound()
         #     return
 
@@ -179,10 +193,10 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 
     def handleValidateUser(self):
         contlength = int(self.headers["Content-Length"])
-        request_stuff = self.rfile.read(contlength).decode("utf-8")
-        parsed_stuff = parse_qs(request_stuff)
-        username = parsed_stuff['name'][0]
-        password = parsed_stuff['pass'][0]
+        request_stuff1 = self.rfile.read(contlength)
+        request_stuff = json.loads(request_stuff1.decode('utf-8'))
+        username = request_stuff['name']
+        password = request_stuff['pass']
 
         db = CreditcardsDB()
         check = db.validateUser(username, password)
@@ -195,8 +209,9 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 
         else:
             self.send_response(201)
-            self.send_headers()
-            self.sessionData["userId"] = check["userId"]
+            self.end_headers()
+            print(check["user_id"])
+            self.sessionData["user_id"] = check["user_id"]
 
     def handleAddCard(self):
         contlength = int(self.headers["Content-Length"])
@@ -215,7 +230,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
     def handleDeleteCard(self, card_name):
         db = CreditcardsDB()
         oneRecord = db.deleteCard(card_name)
-        if oneRecord != None:
+        if oneRecord == True:
             db.deleteCard(card_name)
             self.send_response(200)
             self.end_headers()
@@ -261,6 +276,10 @@ class MyRequestHandler(BaseHTTPRequestHandler):
                 print("gotEverything")
         elif collection == "usercards":
             self.handleGetUserCards()
+        elif collection == "user":
+            # self.handleGetUser(splitpath[2])
+            self.handleGetUser()
+            print("getting user")
         else:
             self.handleNotFound()
             print("invalid path")

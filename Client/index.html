@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" type="text/css" 
       href="android.css" media="only screen and (max-width: 600px)" />
-<link rel="stylesheet" type="text/css" 
+        <link rel="stylesheet" type="text/css" 
       href="desktop.css" media="screen and (min-width: 601px)" />
     </head>
     <body>
@@ -20,108 +20,97 @@
                 </nav>
                 <div class="inner">
                     <h1>Credit Rewards</h1>
-                    <!-- <p>{{ points }}</p> -->
+                    <p>{{ points }}</p>
                 </div>
             </div>
         </header>
-        <p>Enter Cost</p>
-        <input type="text" id="inputamout" v-model="inputamount" placeholder="amount">
 
-        <p>All Cards:</p>
-        <ul id="allCards">
-            <li v-for="(card,index) in cards">
-                {{ card.card_name }}
-                <button class="addcardbutton" v-on:click="addCard(index)">Add Card</button>
-                <button class="removecardbutton" v-on:click="removeCard(index)">Remove Card</button>
-            </li>
-        </ul>
+        <div class="whitespace"></div>
 
-
-        <div class="column1">
-            <div class="button1">
-                <button class="button2" v-on:click="getTravelCards()">Travel</button>
+        <div class="grid-container">
+            <div class="grid-item"></div>
+            <div class="grid-item">
+                <div id="cost">
+                    <p>Enter Cost</p>
+                    <input type="text" id="inputamount" v-model="inputamount" placeholder="amount">
+                </div>
             </div>
-            <ul id="travelCards">
-                <li v-if = "tclicked" v-for="tcard in tcards">
-                    {{ tcard.card_name }}
-                    {{ tcard.Travel }}
-                    {{tcard.Travel * inputamount}}
-                </li>
-            </ul>
+            <div class="grid-item"></div>
         </div>
 
-        <div class="column2">
-            <div class="button1">
-                <button class="button2" v-on:click="getGroceryCards()">Grocery</button>
+        <div class="whitespace"></div>
+
+        <div class="lists">
+            <div class="column1">
+                <div class="button1">
+                    <button class="button2" v-on:click="getTravelCards()">Travel</button>
+                </div>
+                <ul id="travelCards">
+                    <li v-if = "tclicked" v-for="tcard in tcards">
+                        {{tcard}}
+                        <h3>{{ tcard.card_name }}</h3>
+                        <p>Points per dollar: {{ tcard.Travel }}</p>
+                        <p>Points for purchase: {{tcard.Travel * inputamount}}</p>
+                    </li>
+                </ul>
             </div>
-            <ul id="groceryCards">
-                <li v-if = "gclicked" v-for="gcard in gcards">
-                    {{ gcard.card_name }}
-                    {{ gcard.groceries }}
-                    {{gcard.groceries * inputamount}}
 
-                </li>
-            </ul>
-        </div>
-
-        <div class="column3">
-            <div class="button1">
-                <button class="button2" v-on:click="getDiningCards()">Dining</button>
+            <div class="column2">
+                <div class="button1">
+                    <button class="button2" v-on:click="getGroceryCards()">Grocery</button>
+                </div>
+                <ul id="groceryCards">
+                    <li v-if = "gclicked" v-for="gcard in gcards">
+                        <h3>{{ gcard.card_name }}</h3>
+                        <p>Points per dollar: {{ gcard.groceries }}</p>
+                        <p>Points for purchase: {{gcard.groceries * inputamount}}</p>
+                    </li>
+                </ul>
             </div>
-            <ul id="diningCards">
-                <li v-if = "dclicked" v-for="dcard in dcards">
-                    {{ dcard.card_name }}
-                    {{ dcard.dining }}
-                    {{dcard.dining * inputamount}}
 
-                </li>
-            </ul>
-        </div>
-
-        <div class="column4">
-            <div class="button1">
-                <button class="button2" v-on:click="getGasCards()">Gas</button>
+            <div class="column3">
+                <div class="button1">
+                    <button class="button2" v-on:click="getDiningCards()">Dining</button>
+                </div>
+                <ul id="diningCards">
+                    <li v-if = "dclicked" v-for="dcard in dcards">
+                        <h3>{{ dcard.card_name }}</h3>
+                        <p>Points per dollar: {{ dcard.dining }}</p>
+                        <p>Points for purchase: {{dcard.dining * inputamount}}</p>
+                    </li>
+                </ul>
             </div>
-            <ul id="gasCards">
-                <li v-if = "gasclicked" v-for="gascard in gascards">
-                    {{ gascard.card_name }}
-                    {{ gascard.fuel }}
-                    {{gascard.fuel * inputamount}}
 
-                </li>
-            </ul>
-        </div>
-
-        <div class="column5">
-            <div class="button1">
-                <button class="button2" v-on:click="getShoppingCards()">Shopping</button>
+            <div class="column4">
+                <div class="button1">
+                    <button class="button2" v-on:click="getGasCards()">Gas</button>
+                </div>
+                <ul id="gasCards">
+                    <li v-if = "gasclicked" v-for="gascard in gascards">
+                        <h3>{{ gascard.card_name }}</h3>
+                        <p>Points per dollar: {{ gascard.fuel }}</p>
+                        <p>Points for purchase: {{gascard.fuel * inputamount}}</p>
+                    </li>
+                </ul>
             </div>
-            <ul id="shoppingCards">
-                <li v-if = "sclicked" v-for="scard in scards">
-                    {{ scard.card_name }}
-                    {{ scard.shopping }}
-                    {{scard.shopping * inputamount}}
 
-                </li>
-            </ul>
+            <div class="column5">
+                <div class="button1">
+                    <button class="button2" v-on:click="getShoppingCards()">Shopping</button>
+                </div>
+                <ul id="shoppingCards">
+                    <li v-if = "sclicked" v-for="scard in scards">
+                        <h3>{{ scard.card_name }}</h3>
+                        <p>Points per dollar: {{ scard.shopping }}</p>
+                        <p>Points for purchase: {{scard.shopping * inputamount}}</p>
+                    </li>
+                </ul>
+            </div>
         </div>
-
-        <p>User Cards</p>
-        <ul id="userCards">
-            <li v-for="(card,index) in usercards">
-                {{ card.card_name }}
-            </li>
-        </ul>
-
-
-        <!-- <template>
-            <vue-horizontal responsive>
-                <section v-for="c in cards" :key= "c">
-                  <h3>{{ c.card_name }}</h3>
-                </section>
-            </vue-horizontal>
-        </template> -->
-
+            <div class="whitespace"></div>
+            <div class="whitespace"></div>
+            <div class="whitespace"></div>
+            <div class="whitespace"></div>
         </div>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

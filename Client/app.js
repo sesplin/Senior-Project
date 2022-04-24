@@ -14,6 +14,7 @@ var app = new Vue({
 
         cards:[],
         usercards:[],
+        users:[],
         tcards:[],
         dcards:[],
         gcards:[],
@@ -34,13 +35,14 @@ var app = new Vue({
         login_pass:"",
 
         newcard_name: "",
-
-        inputamout: ""
+        inputamount: "",
+        user: "1"
     },
 
     created:function(){
         this.getCards();
         this.getUserCards();
+        this.getUser();
     },
 
     methods:{
@@ -85,6 +87,18 @@ var app = new Vue({
             fetch(this.server_url+"/usercards").then(function(response){
                 response.json().then(function(data){
                     app.usercards=data;
+                    console.log(data)
+                })
+            })
+            .catch(function(error) {
+                console.log('Found error: \n', error);
+              });
+        },
+
+        getUser:function(){
+            fetch(this.server_url+"/user/"+this.user).then(function(response){
+                response.json().then(function(data){
+                    app.user=data;
                     console.log(data)
                 })
             })
@@ -170,7 +184,10 @@ var app = new Vue({
                     "Content-Type":"application/json"
                 },
                 body:JSON.stringify(login_profile)
-            }).then(function(){
+            }).then(function(response){
+                // if (response.status = 401){
+                //     console.log("Sign in Failed!");
+                // }
                 app.login_username = "";
                 app.login_pass = "";
             })
@@ -189,6 +206,7 @@ var app = new Vue({
                 body:JSON.stringify(newcard)
             }).then(function(){
                 app.newcard_name = "";
+                app.getUserCards();
             })
         },
 
@@ -199,8 +217,8 @@ var app = new Vue({
                     "Content-Type":"application/json"
                 }
             }).then(function(){
-                app.getCards();
+                app.getUserCards();
             })
-        }
+        },
     },
 })
