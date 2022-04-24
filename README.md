@@ -6,7 +6,10 @@ Web application created with Python, HTML, CSS, and Vue.js
 - Technologies
 - Setup
 
-# General Info
+# Problem
+
+
+# Solution
 
 # Technologies
 
@@ -14,7 +17,7 @@ Web application created with Python, HTML, CSS, and Vue.js
 
 ```sql
 CREATE TABLE users(
-user_id INTEGER PRIMARY KEY,
+user_id INTEGER PR IMARY KEY,
 first_name TEXT NOT NULL,
 last_name TEXT NOT NULL,
 email TEXT NOT NULL UNIQUE,
