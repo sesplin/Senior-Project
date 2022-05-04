@@ -63,8 +63,14 @@ Retrieve user card collection  | GET    | /cards/dining
 Retrieve user card collection  | GET    | /cards/grocery
 Retrieve user card collection  | GET    | /cards/gas
 Retrieve user card collection  | GET    | /cards/shopping
-Create vacation member         | POST   | /vaca
 Create user member             | POST   | /users
 Validate user member           | POST   | /sessions
-Update vacation member         | PUT    | /vaca/*\<id\>*
-Delete vacation member         | DELETE | /vaca/*\<id\>*
+![Mainpage](https://user-images.githubusercontent.com/70726533/166820696-95627212-0e63-4a8c-a277-a7201257823c.jpg)
+
+
+![dropdown](https://user-images.githubusercontent.com/70726533/166820732-17ed8955-7409-4484-8511-eafbd9b6fb98.jpg)
+
+![ProfilePage](https://user-images.githubusercontent.com/70726533/166820755-6a972f31-f0e6-407e-9fd3-cf9b59fc2630.jpg)
+
+
+
